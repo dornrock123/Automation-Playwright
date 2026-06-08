@@ -8,7 +8,7 @@ export default defineConfig({
   workers: process.env.CI ? 1 : undefined,
   reporter: 'html',
   use: {
-    headless: process.env.CI ? true : false, // ✅ เพิ่มกลับมา
+    headless: true, // ✅ hardcode true ไปเลย
     trace: 'on-first-retry',
   },
 
@@ -17,21 +17,21 @@ export default defineConfig({
       name: 'chromium',
       use: {
         ...devices['Desktop Chrome'],
-        headless: !!process.env.CI,
+        headless: true, // ✅
       },
     },
     {
       name: 'firefox',
       use: {
         ...devices['Desktop Firefox'],
-        headless: !!process.env.CI,
+        headless: true, // ✅
       },
     },
     {
       name: 'webkit',
       use: {
         ...devices['Desktop Safari'],
-        headless: !!process.env.CI,
+        headless: true, // ✅
       },
     },
   ],
